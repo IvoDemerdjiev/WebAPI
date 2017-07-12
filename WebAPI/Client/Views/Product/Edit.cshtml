@@ -1,0 +1,41 @@
+﻿@model Client.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create</title>
+</head>
+
+<body>
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Product.Name)</td>
+                <td>@Html.TextBoxFor(Model => Model.Product.Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Product.Price)</td>
+                <td>@Html.TextBoxFor(Model => Model.Product.Price)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Product.Qty)</td>
+                <td>@Html.TextBoxFor(Model => Model.Product.Qty)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" name="Save" value="Save" />
+                    @Html.HiddenFor(model => model.Product.Id);
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+
+<body>
+    <a href="@Url.Action("Create", "Product")">Add New Product</a>
+    <table cellspacing="2" cellpadding="2" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+        </tr>
+        @foreach (var product in ViewBag.lisProducts)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Qty</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Product", new { id = product.Id})">Delete</a>
+                    <a href="@Url.Action("Edit", "Product", new { id = product.Id})">Edit</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+
+</html>
+
